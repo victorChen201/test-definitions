@@ -23,9 +23,9 @@ for sheetname in lsheetlist:
     dft=df2.groupby(u'责任人').count()
     for name in dft.index:
         dautobugs_guy[name]=dautobugs_guy[name]+dft.loc[name][u'是否完成']
-print ("责任人\t"+"个人总用例数\t"+"自动化用例数\t")
+print ("%10s%10s%10s"%(u"责任人",u"个人总用例数",u"自动化用例数"))
 sum=0
 for name in dbugs_guy.keys():
-    print ("%s\t%i\t\t%i"%(name,dbugs_guy[name],dautobugs_guy[name],))
+    print ("%10s%10i%14i"%(name,dbugs_guy[name],dautobugs_guy[name],))
     sum+=dbugs_guy[name]
-print "总用例数:%i"%sum
+print ("%10s%10i"%(u'总用例数:',sum))
